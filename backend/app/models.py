@@ -10,9 +10,9 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True)
     email = Column(String, unique=True, index=True, nullable=False)
     name = Column(String, nullable=True)
-    picture = Column(String, nullable=True)  # ссылка на аватар
-    provider = Column(String, default="google")  # google или local
-    hashed_password = Column(String, nullable=True)  # только для local
+    picture = Column(String, nullable=True)
+    provider = Column(String, default="google")
+    hashed_password = Column(String, nullable=True)
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
