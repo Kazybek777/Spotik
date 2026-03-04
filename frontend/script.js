@@ -1,7 +1,36 @@
+console.log('Скрипт запущен');
+alert('Скрипт запущен'); // для наглядности
+
 const API_BASE = 'http://localhost:8000';
 const WS_URL = 'ws://localhost:8000/data/ws';
 
 let cameras = {};
+
+async function checkAuth() {
+    try {
+        const resp = await fetch(`${API_BASE}/auth/me`);
+        if (resp.ok) {
+            const user = await resp.json();
+            document.getElementById('user-info').innerHTML = `
+                <span>Привет, ${user.name}</span>
+                <button onclick="logout()">Выйти</button>
+            `;
+        } else {
+            document.getElementById('user-info').innerHTML = `<button onclick="login()">Войти через Google</button>`;
+        }
+    } catch (e) {
+        document.getElementById('user-info').innerHTML = `<button onclick="login()">Войти через Google</button>`;
+    }
+}
+
+function login() {
+    window.location.href = `${API_BASE}/auth/login`;
+}
+
+function logout() {
+    window.location.href = `${API_BASE}/auth/logout`;
+}
+// ---- Конец аутентификации ----
 
 async function fetchCameras() {
     try {
@@ -163,7 +192,9 @@ function updateStats(data) {
     });
 }
 
+
 (async () => {
     await fetchCameras();
     connectWebSocket();
+    checkAuth();
 })();

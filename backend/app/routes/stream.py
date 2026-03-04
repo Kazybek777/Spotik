@@ -16,7 +16,6 @@ def generate_frames(camera_id: str):
             if ret:
                 yield (b'--frame\r\n'
                        b'Content-Type: image/jpeg\r\n\r\n' + jpeg.tobytes() + b'\r\n')
-        # Без задержек – максимальная скорость отдачи кадров
 
 @router.get("/{camera_id}")
 async def video_stream(camera_id: str):

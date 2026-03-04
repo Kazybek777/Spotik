@@ -5,3 +5,8 @@ opencv-python
 ultralytics
 numpy
 python-multipart
+authlib
+httpx
+python-dotenv
+itsdangerous
+passlib[bcrypt]
