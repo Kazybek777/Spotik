@@ -3,20 +3,20 @@
     {
       "id": "cam1",
       "name": "Вход на парковку",
-      "source": "videos/vid1.mp4",
+      "source": "videos/vid2.mp4",
       "capacity": 50,
       "lines": {
         "entry": {
           "x1": 200,
-          "y1": 300,
+          "y1": 100,
           "x2": 600,
-          "y2": 300
+          "y2": 100
         },
         "exit": {
           "x1": 200,
-          "y1": 400,
-          "x2": 600,
-          "y2": 400
+          "y1": 200,
+          "x2": 800,
+          "y2": 200
         }
       },
       "direction": "horizontal"

@@ -162,4 +162,3 @@ async def login_password(user_data: UserLogin, request: Request, db: Session = D
     }
 
     return {"message": "Login successful"}
-
